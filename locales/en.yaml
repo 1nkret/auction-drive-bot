@@ -1,0 +1,13 @@
+start_message: |
+  👋 Hi! I’m AuctionDriveBot — I’ll help you find cars from Ukrainian auctions 🇺🇦
+
+  🚗 I search for cars based on your filters and send you matching listings from:
+  • The bot uses AutoRia
+
+  🔍 Specify the make, model, year, mileage, engine type, and other parameters — and I’ll start searching.
+
+  📥 When a good option shows up, you can leave your phone number and our manager will contact you.
+
+  Click /search to start looking for a car!
+
+search_message: ""
