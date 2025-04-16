@@ -163,10 +163,3 @@ cython_debug/
 
 .idea
 .vscode
-media/take_photo
-media/upload_photos
-media/screen
-!media/take_photo/default.jpg
-members.json
-config.json
-settings.json

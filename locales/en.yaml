@@ -10,4 +10,4 @@ start_message: |
 
   Click /search to start looking for a car!
 
-search_message: ""
+search_start_message: "You haven't linked a phone number. Please link it so our managers can contact you!"

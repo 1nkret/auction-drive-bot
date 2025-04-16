@@ -16,4 +16,12 @@ async def callback_search_handler(query: types.CallbackQuery):
 
 
 async def search_handler(event):
+    filters = False
+    if filters:
+        ...
+
     await event.answer(t("search_message", event.from_user.language_code or "en"))
+
+
+async def setup_filters(event):
+    ...

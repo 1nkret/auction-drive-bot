@@ -1,12 +1,13 @@
 import os
 import yaml
 from functools import lru_cache
+from core.config import DEFAULT_LANGUAGE
 
 
 @lru_cache(64)
 def t(phrase: str, locale: str) -> str:
     if locale not in ["ru", "uk", "en"]:
-        locale = "en"
+        locale = DEFAULT_LANGUAGE
 
     path = os.path.join("locales", f"{locale}.yaml")
     with open(path, encoding="utf-8") as file:
