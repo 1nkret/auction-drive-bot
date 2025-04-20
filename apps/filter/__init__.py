@@ -1,5 +1,5 @@
-from .router import router
+from .handlers import router
 
 __all__ = [
-    "router",
+    "handlers",
 ] 

@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "test-task-insiders-fastapi"
+name = "auction-drive-bot"
 version = "0.1.0"
 description = ""
 authors = ["DaTrEvTeR <rozhkovm176@gmail.com>"]
@@ -8,6 +8,11 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.13"
+aiogram = "^3.20.0.post0"
+sqlalchemy = "^2.0.40"
+asyncpg = "^0.30.0"
+pydantic = "^2.11.3"
+pydantic-settings = "^2.9.1"
 
 
 
