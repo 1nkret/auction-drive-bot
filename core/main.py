@@ -3,13 +3,12 @@ import logging
 
 from aiogram.exceptions import TelegramNetworkError
 from core.config import dp, bot
-from utils.loader.router_loader import load_routers
+from core.middleware.database import DatabaseMiddleware
 from apps import menu, search, filter
 
 async def start_bot():
     dp.include_routers(
-        # load_routers()
-        menu.router,
+        # menu.router,
         search.router,
         filter.router
     )

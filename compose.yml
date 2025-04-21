@@ -20,7 +20,7 @@ services:
     expose:
       - ${POSTGRES__PORT}
     ports:
-      - "${POSTGRES__PORT}:${POSTGRES__PORT}"
+      - "${POSTGRES__PORT}:5432"
     networks:
       - internal
     healthcheck:

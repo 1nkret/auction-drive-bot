@@ -4,6 +4,7 @@ from sqlalchemy.pool import NullPool
 from core.models.base import Base
 import os
 from dotenv import load_dotenv
+from typing import AsyncGenerator
 
 load_dotenv()
 
@@ -25,6 +26,6 @@ async def init_db():
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
 
-async def get_session() -> AsyncSession:
+async def get_session() -> AsyncGenerator[AsyncSession, None]:
     async with async_session() as session:
         yield session 

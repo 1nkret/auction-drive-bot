@@ -5,10 +5,14 @@ from aiogram.fsm.state import State, StatesGroup
 from aiogram.types import Message, CallbackQuery
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.future import select
 from core.models import User, SearchSettings
 from typing import Optional
+from core.middleware.database import DatabaseMiddleware
 
 router = Router()
+router.callback_query.middleware(DatabaseMiddleware())
+router.message.middleware(DatabaseMiddleware())
 
 class FilterStates(StatesGroup):
     waiting_for_mark = State()
@@ -24,18 +28,18 @@ class FilterStates(StatesGroup):
 @router.message(Command("start"))
 async def cmd_start(message: Message, session: AsyncSession):
     # Create or get user
-    user = await session.get(User, message.from_user.id)
+    user = await session.execute(select(User).where(User.telegram_id == message.from_user.id))
     if not user:
         user = User(telegram_id=message.from_user.id)
         session.add(user)
         await session.commit()
     
     # Create or get search settings
-    settings = await session.get(SearchSettings, user.id)
-    if not settings:
-        settings = SearchSettings(user_id=user.id)
-        session.add(settings)
-        await session.commit()
+    # settings = await session.get(SearchSettings, user.id)
+    # if not settings:
+    #     settings = SearchSettings(user_id=user.id)
+    #     session.add(settings)
+    #     await session.commit()
     
     # Send welcome message with filter setup
     builder = InlineKeyboardBuilder()
