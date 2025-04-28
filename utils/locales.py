@@ -4,7 +4,7 @@ from functools import lru_cache
 
 
 @lru_cache(64)
-def t(phrase: str, locale: str) -> str:
+def t(phrase: str, locale: str = "en") -> str:
     if locale not in ["ru", "uk", "en"]:
         locale = "en"
 

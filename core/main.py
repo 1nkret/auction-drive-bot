@@ -4,14 +4,18 @@ import logging
 from aiogram.exceptions import TelegramNetworkError
 from core.config import dp, bot
 from core.middleware.database import DatabaseMiddleware
+from core.middleware.locale import LocaleMiddleware
 from apps import menu, search, filter
 
 async def start_bot():
     dp.include_routers(
-        # menu.router,
+        menu.router,
         search.router,
         filter.router
     )
+
+    dp.message.middleware(LocaleMiddleware())
+    dp.callback_query.middleware(LocaleMiddleware())
 
     tries = 0
     try:
