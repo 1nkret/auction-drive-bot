@@ -1,13 +1,54 @@
 start_message: |
-  👋 Hi! I’m AuctionDriveBot — I’ll help you find cars from Ukrainian auctions 🇺🇦
+  👋 Hi! I’m AuctionDriveBot. I’ll help you find cars from Ukrainian auctions 🇺🇦
 
-  🚗 I search for cars based on your filters and send you matching listings from:
+  🚗 I search for cars based on your filters and send you matching listings:
   • The bot uses AutoRia
 
-  🔍 Specify the make, model, year, mileage, engine type, and other parameters — and I’ll start searching.
+  🔍 Set the make, model, year, mileage, engine type and other filters — and I’ll start searching.
 
-  📥 When a good option shows up, you can leave your phone number and our manager will contact you.
+  📥 When a good option appears, you can leave your phone number and our manager will contact you.
 
   Click /search to start looking for a car!
 
-search_message: ""
+about_message: |
+  ℹ️ AuctionDriveBot is a smart assistant for finding cars from Ukrainian auctions.
+
+  🤖 The bot uses the AutoRia platform and lets you set filters like make, model, year, mileage, engine type, drive type, price, and more.
+  
+  📲 When a suitable car is found, the bot will immediately send you the listing. You can leave your phone number and our manager will reach out to you.
+  
+  🇺🇦 A convenient way to find the right car — right inside Telegram.
+
+help_message: |
+  ❓ How to use AuctionDriveBot:
+  
+  1. Press /search to start creating a filter.
+  2. Choose the desired options: make, model, year, mileage, price, etc.
+  3. When done, press “✅ Done”.
+  4. The bot will monitor new listings and send you matching cars.
+  
+  📞 When a good car appears, you can leave your phone number — our manager will contact you.
+
+  Commands:
+    /start — restart the bot
+    /search — create a new filter
+    /help — command help
+    /about — about the bot
+
+kb_filters: "Filters"
+kb_dovidka: "Help"
+kb_about: "About the project"
+
+kb_btn_mark: "🚘 Select make"
+kb_btn_model: "🚗 Select model"
+kb_btn_min_year: "📅 Min year"
+kb_btn_max_year: "📅 Max year"
+kb_btn_min_mileage: "📉 Min mileage"
+kb_btn_max_mileage: "📈 Max mileage"
+kb_btn_engine: "🔧 Engine type"
+kb_btn_drive: "⚙️ Drive type"
+kb_btn_min_price: "💰 Min price"
+kb_btn_max_price: "💸 Max price"
+kb_btn_damage: "🚨 Include damaged"
+kb_btn_done: "✅ Done"
+select_param: "🔍 Choose search parameters:"

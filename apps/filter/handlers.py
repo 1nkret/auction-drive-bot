@@ -1,6 +1,9 @@
+import logging
+
 from aiogram import Router, F
+from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
-from aiogram.types import CallbackQuery
+from aiogram.types import CallbackQuery, InlineKeyboardMarkup, Message
 from sqlalchemy.ext.asyncio import AsyncSession
 from core.models import SearchSettings
 from core.middleware.database import DatabaseMiddleware
@@ -13,16 +16,19 @@ router.callback_query.middleware(DatabaseMiddleware())
 router.message.middleware(DatabaseMiddleware())
 
 
-@router.callback_query(FilterCBD.filter(F.action == SearchSettingsAction.create))
-async def setup_filters(callback: CallbackQuery, session: AsyncSession, locale: str, state: FSMContext):
-    user = await get_user(session, callback.from_user.id)
+async def show_filters_ui(
+    user_id: int,
+    session: AsyncSession,
+    state: FSMContext,
+    locale: str,
+) -> tuple[SearchSettings, InlineKeyboardMarkup]:
+    user = await get_user(session, user_id)
     search_settings = SearchSettings(user_id=user.id)
     session.add(search_settings)
     await session.commit()
     await session.refresh(search_settings)
-    
     await state.update_data(settings=search_settings)
-    
+
     kb = build_inline_kb(
         sizes=[2, 2, 2, 2, 2, 1, 1],
         buttons={
@@ -40,8 +46,35 @@ async def setup_filters(callback: CallbackQuery, session: AsyncSession, locale: 
             t("kb_btn_done", locale): FilterCBD(action=SearchSettingsAction.edit, edit_action=EditSearchSettingsAction.done, filter_id=search_settings.id).pack(),
         }
     )
-    
+
+    return search_settings, kb
+
+
+@router.callback_query(FilterCBD.filter(F.action == SearchSettingsAction.create))
+async def setup_filters_callback(callback: CallbackQuery, session: AsyncSession, locale: str, state: FSMContext):
+    _, kb = await show_filters_ui(
+        user_id=callback.from_user.id,
+        session=session,
+        state=state,
+        locale=locale,
+    )
+
     await callback.message.edit_text(
+        t("select_param", locale),
+        reply_markup=kb
+    )
+
+
+@router.message(Command("search"))
+async def setup_filters_message(message: Message, session: AsyncSession, locale: str, state: FSMContext):
+    _, kb = await show_filters_ui(
+        user_id=message.from_user.id,
+        session=session,
+        state=state,
+        locale=locale,
+    )
+
+    await message.answer(
         t("select_param", locale),
         reply_markup=kb
     )

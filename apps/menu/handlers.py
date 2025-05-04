@@ -20,7 +20,7 @@ async def cmd_start(message: Message, session: AsyncSession, locale: str):
 
     await message.answer(
         text=t("start_message", locale=locale),
-        reply_markup=get_main_menu_kb()
+        reply_markup=get_main_menu_kb(locale)
     )
 
 
@@ -28,7 +28,7 @@ async def cmd_start(message: Message, session: AsyncSession, locale: str):
 async def cmd_help(cb: CallbackQuery, locale: str):
     await cb.message.edit_text(
         text=t("help_message", locale=locale),
-        reply_markup=get_main_menu_kb()
+        reply_markup=get_main_menu_kb(locale)
     )
 
 
@@ -36,5 +36,5 @@ async def cmd_help(cb: CallbackQuery, locale: str):
 async def cmd_about(cb: CallbackQuery, locale: str):
     await cb.message.edit_text(
         text=t("about_message", locale=locale),
-        reply_markup=get_main_menu_kb()
+        reply_markup=get_main_menu_kb(locale)
     )
