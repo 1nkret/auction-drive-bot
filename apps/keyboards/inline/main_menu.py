@@ -6,7 +6,7 @@ from core.enums import SearchSettingsAction
 def get_main_menu_kb():
     sizes = [1, 2]
     buttons = {
-        "Фільтри": FilterCBD(action=SearchSettingsAction.create).pack(),
+        "Фільтри": FilterCBD(action=SearchSettingsAction.read).pack(),
         "Про проект": "about",
         "Довідка": "help",
     }
