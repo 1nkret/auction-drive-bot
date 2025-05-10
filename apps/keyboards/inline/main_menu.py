@@ -7,7 +7,7 @@ from utils.locales import t
 def get_main_menu_kb(locale: str = "en"):
     sizes = [1, 2]
     buttons = {
-        t("kb_filters", locale): FilterCBD(action=SearchSettingsAction.create).pack(),
+        t("kb_filters", locale): FilterCBD(action=SearchSettingsAction.read).pack(),
         t("kb_about", locale): "about",
         t("kb_dovidka", locale): "help",
     }

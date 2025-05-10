@@ -1,4 +1,4 @@
-from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
+from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sessionmaker
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.pool import NullPool
 from core.models.base import Base
@@ -16,11 +16,7 @@ engine = create_async_engine(
     poolclass=NullPool
 )
 
-async_session = sessionmaker(
-    engine,
-    class_=AsyncSession,
-    expire_on_commit=False
-)
+async_session = async_sessionmaker(bind=engine, autoflush=False, expire_on_commit=False)
 
 async def init_db():
     async with engine.begin() as conn:
