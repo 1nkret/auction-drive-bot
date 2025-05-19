@@ -1,14 +1,14 @@
 from enum import Enum
 
 
-class EngineType(Enum):
-    petrol = "petrol"
-    electro = "electro"
-    hybrid = "hybrid"
-    diesel = "diesel"
+class EngineTypeEnum(Enum):
+    PETROL = "petrol"
+    ELECTRO = "electro"
+    HYBRID = "hybrid"
+    DIESEL = "diesel"
 
 
-class DriveType(Enum):
-    front = "front"
-    back = "back"
-    full = "full"
+class DriveTypeEnum(Enum):
+    FRONT = "front"
+    BACK = "back"
+    FULL = "full"

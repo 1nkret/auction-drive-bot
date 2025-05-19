@@ -3,9 +3,8 @@ from aiogram.filters import CommandStart
 from aiogram.types import Message, CallbackQuery
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from apps.filter.handlers import router
-from apps.menu.services import register_user_if_not_exitst
-from apps.keyboards.inline.main_menu import get_main_menu_kb
+from app.menu.services import register_user_if_not_exitst
+from app.keyboards.inline.main_menu import get_main_menu_kb
 from core.middleware.database import DatabaseMiddleware
 from utils import t
 

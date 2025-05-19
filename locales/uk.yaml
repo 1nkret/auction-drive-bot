@@ -51,4 +51,29 @@ kb_btn_min_price: "💰 Мін. ціна"
 kb_btn_max_price: "💸 Макс. ціна"
 kb_btn_damage: "🚨 Враховувати пошкоджені"
 kb_btn_done: "✅ Готово"
-select_param: "🔍 Обери параметри пошуку:"
+select_param: |
+  Застосовані фільтри:
+    🚘 Марка: {mark}
+    🚗 Модель: {model}
+    📅 Рік від: {min_year}
+    📅 Рік до: {max_year}
+    📉 Пробіг від: {min_mileage}
+    📈 Пробіг до: {max_mileage}
+    🔧 Тип двигуна: {engine_type}
+    ⚙️ Тип приводу: {drive_type}
+    💰 Ціна від: {min_price}
+    💸 Ціна до: {max_price}
+    🚨 Дозволити пошкоджені: {allow_damaged}
+    🔍 Обери параметри пошуку:
+represent_filter: |
+  🚘 Марка: {mark}
+  🚗 Модель: {model}
+  📅 Рік від: {min_year}
+  📅 Рік до: {max_year}
+  📉 Пробіг від: {min_mileage}
+  📈 Пробіг до: {max_mileage}
+  🔧 Тип двигуна: {engine_type}
+  ⚙️ Тип приводу: {drive_type}
+  💰 Ціна від: {min_price}
+  💸 Ціна до: {max_price}
+  🚨 Дозволити пошкоджені: {allow_damaged}

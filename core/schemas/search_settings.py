@@ -1,7 +1,7 @@
 from datetime import datetime
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from typing import Optional
-from core.enums import EngineType, DriveType
+from core.enums import EngineTypeEnum, DriveTypeEnum
 
 class SearchSettingsBase(BaseModel):
     mark: Optional[str] = None
@@ -10,8 +10,8 @@ class SearchSettingsBase(BaseModel):
     max_year: Optional[int] = None
     min_mileage: Optional[int] = None
     max_mileage: Optional[int] = None
-    engine_type: Optional[EngineType] = None
-    drive_type: Optional[DriveType] = None
+    engine_type: Optional[str] = None
+    drive_type: Optional[str] = None
     min_price: Optional[int] = None
     max_price: Optional[int] = None
     allow_damaged: bool = False
@@ -30,3 +30,9 @@ class SearchSettingsInDB(SearchSettingsBase):
 
     class Config:
         from_attributes = True 
+
+
+class SearchSettingsSchema(SearchSettingsBase):
+    id: Optional[int] = None
+
+    model_config=ConfigDict(from_attributes=True)

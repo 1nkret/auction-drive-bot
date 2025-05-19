@@ -39,7 +39,7 @@ kb_filters: "Filters"
 kb_dovidka: "Help"
 kb_about: "About the project"
 
-kb_btn_mark: "🚘 Select make"
+kb_btn_mark: "🚘 Select mark"
 kb_btn_model: "🚗 Select model"
 kb_btn_min_year: "📅 Min year"
 kb_btn_max_year: "📅 Max year"
@@ -51,4 +51,29 @@ kb_btn_min_price: "💰 Min price"
 kb_btn_max_price: "💸 Max price"
 kb_btn_damage: "🚨 Include damaged"
 kb_btn_done: "✅ Done"
-select_param: "🔍 Choose search parameters:"
+select_param: |
+  current settings:
+    🚘 Mark: {mark}
+    🚗 Model: {model}
+    📅 Min year: {min_year}
+    📅 Max year: {max_year}
+    📉 Min mileage: {min_mileage}
+    📈 Max mileage: {max_mileage}
+    🔧 Engine type: {engine_type}
+    ⚙️ Drive type: {drive_type}
+    💰 Min price: {min_price}
+    💸 Max price: {max_price}
+    🚨 Include damaged: {allow_damaged}
+  🔍 Choose search parameters:
+represent_filter: |
+  🚘 Mark: {mark}
+  🚗 Model: {model}
+  📅 Min year: {min_year}
+  📅 Max year: {max_year}
+  📉 Min mileage: {min_mileage}
+  📈 Max mileage: {max_mileage}
+  🔧 Engine type: {engine_type}
+  ⚙️ Drive type: {drive_type}
+  💰 Min price: {min_price}
+  💸 Max price: {max_price}
+  🚨 Include damaged: {allow_damaged}

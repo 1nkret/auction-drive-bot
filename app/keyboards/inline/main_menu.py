@@ -1,5 +1,5 @@
 from utils.build_inline_kb import build_inline_kb
-from apps.filter.cb_data import FilterCBD
+from app.filters.cb_data import FilterCBD
 from core.enums import SearchSettingsAction
 from utils.locales import t
 
